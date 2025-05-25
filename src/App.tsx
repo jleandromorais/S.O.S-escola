@@ -11,6 +11,8 @@ import { InicialPag } from './pages/Aluno/InicialAluno';
 import { ProtocoloDen } from './Components/Aluno/protocoloDec';
 import { MinhaDenunciass } from './pages/Aluno/MinhasDenuncias';
 import { PsicologiaPag } from './pages/Aluno/Psicologiapag';
+import About from './pages/AboutAndContact/about';
+import Contact from './pages/AboutAndContact/contact';
 function App() {
   return (
     <BrowserRouter>
@@ -28,6 +30,8 @@ function App() {
           <Route path ="/protocolo" element={<ProtocoloDen />} />
           <Route  path="/minhas-denc" element={<MinhaDenunciass />} />
           <Route path="/psi" element={<PsicologiaPag />} />
+          <Route path="/sobre" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
         </Routes>
       </div>
     </BrowserRouter>

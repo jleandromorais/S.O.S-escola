@@ -1,31 +1,47 @@
-import {  FormEvent } from 'react';
+import { FormEvent, useState } from 'react';
 import styles from '../../styles/Ap.module.css';
 import { useForms } from '../../hooks/useForms';
 import { useNavigate } from 'react-router-dom';
 
 export function AP() {
   const { formData, handleInputChange } = useForms();
-  const navigate=useNavigate();
+  const navigate = useNavigate();
+
+  const [desejaEnviarFoto, setDesejaEnviarFoto] = useState(false);
+  const [foto, setFoto] = useState<File | null>(null);
+
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files && e.target.files.length > 0) {
+      setFoto(e.target.files[0]);
+    }
+  };
+
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
-  
+
     const numero = Math.floor(Math.random() * 90000 + 10000);
     const protocolo = `SOS-2025-${numero}`;
-  
+
     const novaDenuncia = {
       protocolo,
+      tipoDeReclamacao: formData.tipoDeReclamacao,
       descricao: formData.descricao,
       status: 'Em Análise',
+      ehanonimo: formData.ehanonimo,
+      nome: formData.nome,
+      email: formData.email,
+      celular: formData.celular,
+      foto: foto ? foto.name : null, // Apenas o nome do arquivo por enquanto
     };
-  
+
     const denunciasExistentes = JSON.parse(localStorage.getItem('denuncias') || '[]');
     denunciasExistentes.push(novaDenuncia);
     localStorage.setItem('denuncias', JSON.stringify(denunciasExistentes));
-  
-    localStorage.setItem('protocologerado', protocolo); // se quiser usar em ProtocoloDen
+
+    localStorage.setItem('protocologerado', protocolo);
     navigate('/protocolo');
   };
-  
+
   return (
     <div className={styles.complaintContainer}>
       <div className={styles['main-area']}>
@@ -48,7 +64,7 @@ export function AP() {
             >
               <option value="" disabled>Selecione o tipo de denúncia</option>
               <option value="assedio moral">Assédio moral</option>
-              <option value="xigamento">Xingamento</option>
+              <option value="xingamento">Xingamento</option>
               <option value="violencia">Violência</option>
               <option value="discriminacao">Discriminação</option>
               <option value="outro">Outro</option>
@@ -127,6 +143,47 @@ export function AP() {
             ></textarea>
           </div>
 
+          {/* Pergunta se deseja enviar foto */}
+          <div className={styles['form-group']}>
+            <label>Deseja enviar uma foto como evidência?</label>
+            <div>
+              <label>
+                <input
+                  type="radio"
+                  name="desejaEnviarFoto"
+                  value="sim"
+                  checked={desejaEnviarFoto === true}
+                  onChange={() => setDesejaEnviarFoto(true)}
+                />
+                Sim
+              </label>
+              <label style={{ marginLeft: '20px' }}>
+                <input
+                  type="radio"
+                  name="desejaEnviarFoto"
+                  value="nao"
+                  checked={desejaEnviarFoto === false}
+                  onChange={() => setDesejaEnviarFoto(false)}
+                />
+                Não
+              </label>
+            </div>
+          </div>
+
+          {desejaEnviarFoto && (
+            <div className={styles['form-group']}>
+              <label htmlFor="foto">Selecione a foto</label>
+              <input
+                type="file"
+                id="foto"
+                accept="image/*"
+                onChange={handleFileChange}
+                className={styles.input}
+              />
+              {foto && <p>Foto selecionada: {foto.name}</p>}
+            </div>
+          )}
+
           <div className={styles['checkbox-container']}>
             <input
               type="checkbox"
@@ -137,10 +194,14 @@ export function AP() {
               required
               className={styles.checkbox}
             />
-            <label htmlFor="aceitoDeTermos">Declaro que as informações fornecidas são verdadeiras</label>
+            <label htmlFor="aceitoDeTermos">
+              Declaro que as informações fornecidas são verdadeiras
+            </label>
           </div>
 
-          <button type="submit" className={styles['submit-button']}>Enviar</button>
+          <button type="submit" className={styles['submit-button']}>
+            Enviar
+          </button>
         </form>
       </div>
     </div>

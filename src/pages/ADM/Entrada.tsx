@@ -1,6 +1,5 @@
 'use client';
 
-
 import { FaUniversity } from 'react-icons/fa';
 import styles from '../../styles/entrada.module.css';
 
@@ -16,6 +15,10 @@ export default function Entrada() {
   const handleStudentClick = () => {
     navigate('/login-aluno');
     // Você pode também fazer outro router.push aqui, se quiser
+  };
+
+  const handleAboutClick = () => {
+    navigate('/sobre'); // Aqui você pode redirecionar para a página "Sobre a Gente"
   };
 
   return (
@@ -36,6 +39,11 @@ export default function Entrada() {
           </button>
           <button className={styles.actionButton} onClick={handleStudentClick}>
             Área do Aluno
+          </button>
+        </div>
+        <div className={styles.aboutContainer}>
+          <button className={styles.aboutButton} onClick={handleAboutClick}>
+            Sobre a Gente
           </button>
         </div>
       </div>

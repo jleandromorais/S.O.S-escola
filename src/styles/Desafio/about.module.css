@@ -1,0 +1,89 @@
+/* about.module.css */
+.body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #5b8ce6;
+  color: #333;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+}
+
+.logo {
+  color: white;
+  font-size: 1.8rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  margin-bottom: 3rem;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.contentCard {
+  background-color: rgba(255, 255, 255, 0.95);
+  border-radius: 16px;
+  padding: 2.5rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  margin-bottom: 2rem;
+  transition: transform 0.3s ease;
+}
+
+.contentCard:hover {
+  transform: translateY(-5px);
+}
+
+h1 {
+  color: #3a6bc5;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+  font-size: 2rem;
+}
+
+p {
+  line-height: 1.7;
+  margin-bottom: 1rem;
+  color: #555;
+}
+
+.contactBtn {
+  display: inline-block;
+  background-color: white;
+  color: #5b8ce6;
+  padding: 0.8rem 2rem;
+  border-radius: 50px;
+  font-weight: 500;
+  text-decoration: none;
+  border: 2px solid #5b8ce6;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+  margin-top: 1rem;
+  box-shadow: 0 4px 12px rgba(91, 140, 230, 0.2);
+}
+
+.contactBtn:hover {
+  background-color: #5b8ce6;
+  color: white;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(91, 140, 230, 0.3);
+}
+
+.btnContainer {
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .contentCard {
+    padding: 1.5rem;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+}

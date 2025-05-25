@@ -1,8 +1,10 @@
+/* Reset básico */
 html, body {
   margin: 0;
   padding: 0;
   width: 100%;
   height: 100%;
+  font-family: 'Poppins', sans-serif;
 }
 
 .container {
@@ -11,7 +13,6 @@ html, body {
   height: 100vh;
   background-color: white;
 }
-
 
 .leftSide, 
 .rightSide {
@@ -29,93 +30,93 @@ html, body {
   height: 80%;
 }
 
-  
-  .title {
-    margin-bottom: 40px;
-    color: #4a90e2;
-    font-size: 32px;
-    font-weight: 700;
-    text-align: center;
-    font-family: 'Poppins', sans-serif; /* Adicione esta linha */
+.title {
+  margin-bottom: 40px;
+  color: #4a90e2;
+  font-size: 32px;
+  font-weight: 700;
+  text-align: center;
 }
 
-  
-  .title span {
-    font-weight: 800;
-  }
-  
-  .formGroup {
-    width: 70%;
-    margin-bottom: 20px;
-  }
-  
-  .inputGroup {
-    position: relative;
-    margin-bottom: 20px;
-  }
-  
-  .icon {
-    position: absolute;
-    left: 15px;
-    top: 50%;
-    transform: translateY(-50%);
-    color: #aaa;
-  }
-  
-  .inputField {
-    width: 100%;
-    padding: 15px 15px 15px 45px;
-    border: 1px solid #e0e0e0;
-    border-radius: 6px;
-    font-size: 16px;
-    transition: border-color 0.3s;
-  }
-  
-  .inputField:focus {
-    outline: none;
-    border-color: #4a90e2;
-  }
-  
-  .inputField::placeholder {
-    color: #ccc;
-  }
-  
-  .forgotPassword {
-    align-self: flex-start;
-    margin-left: 15%;
-    color: #aaa;
-    font-size: 14px;
-    text-decoration: none;
-    transition: color 0.3s;
-  }
-  
-  .forgotPassword:hover {
-    color: #4a90e2;
-  }
-  
-  .iconContainer {
-    width: 100px;
-    height: 100px;
-    background-color: #4a90e2;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 20px;
-  }
-  
-  .iconContainer i {
-    color: white;
-    font-size: 40px;
-  }
-  
-  .registerTitle {
-    color: #333;
-    font-size: 24px;
-    font-weight: 600;
-    margin-bottom: 30px;
-  }
-  .loginButton,
+.title span {
+  font-weight: 800;
+}
+
+.formGroup {
+  width: 70%;
+  margin-bottom: 20px;
+}
+
+.inputGroup {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.icon {
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #aaa;
+  font-size: 18px;
+  pointer-events: none; /* permite clicar no input, mesmo que o ícone esteja sobreposto */
+}
+
+.inputField {
+  width: 100%;
+  padding: 15px 15px 15px 50px; /* espaço suficiente para o ícone à esquerda */
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  font-size: 16px;
+  transition: border-color 0.3s;
+}
+
+.inputField:focus {
+  outline: none;
+  border-color: #4a90e2;
+}
+
+.inputField::placeholder {
+  color: #ccc;
+}
+
+.forgotPassword {
+  align-self: flex-start;
+  margin-left: 15%;
+  color: #aaa;
+  font-size: 14px;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.forgotPassword:hover {
+  color: #4a90e2;
+}
+
+.iconContainer {
+  width: 100px;
+  height: 100px;
+  background-color: #4a90e2;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.iconContainer i {
+  color: white;
+  font-size: 40px;
+}
+
+.registerTitle {
+  color: #333;
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 30px;
+}
+
+.loginButton,
 .registerButton {
   width: 70%;
   padding: 15px;
