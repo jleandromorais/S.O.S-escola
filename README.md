@@ -233,5 +233,4 @@ Reconhecemos os benefícios da programação em par e pretendemos viabilizá-la 
 
 ---
 
-#   C o n s u l t o r C e p  
- 
+#
