@@ -234,62 +234,20 @@ Reconhecemos os benefícios da programação em par e pretendemos viabilizá-la 
 ---
 
 #
-# Adicionando Ícones Font Awesome e React Icons em Projetos React.js
+## 🚀 Como rodar o projeto localmente
 
-Você utilizaria os comandos 
+### 1. Clone o repositório
 
-- `npm install --save @fortawesome/fontawesome-svg-core`
-- `npm install --save @fortawesome/free-solid-svg-icons`
-- `npm install --save @fortawesome/react-fontawesome`
-
-**quando precisa integrar a biblioteca de ícones Font Awesome a um projeto React.js**.
-
-Além disso, pode usar:
-
-- `npm install react-icons`
-
-**quando deseja uma alternativa mais simples e versátil, que reúne diversas bibliotecas de ícones famosas em um único pacote para projetos React.js**.
-
----
-
-## Por que e Quando Instalar Esses Pacotes?
-
-Esses pacotes são essenciais para **adicionar ícones escaláveis (SVG) ao seu aplicativo React de forma otimizada**. A instalação é feita geralmente nos seguintes momentos:
-
-1. **No Início do Projeto ou ao Decidir Usar Ícones:** É comum instalá-los logo no começo do desenvolvimento, junto com outras dependências de interface do usuário, se você já planeja usar ícones.
-
-2. **Para Melhorar a Experiência do Usuário (UX) e a Interface (UI):** Ícones tornam a navegação mais intuitiva, os botões mais claros e o design geral do aplicativo mais atraente e profissional.
-
-3. **Para Ter Ícones Escaláveis e Leves:** Os ícones SVG mantêm a nitidez perfeita em qualquer tamanho e são muito leves, contribuindo para a performance do seu aplicativo sem perdas de qualidade visual.
-
-4. **Para Ter Mais Opções e Facilidade:** Ao instalar o `react-icons`, você tem acesso a várias bibliotecas de ícones (Font Awesome, Material Icons, Ant Design, Bootstrap Icons, entre outros) de forma unificada e com uma sintaxe extremamente simples.
-
----
-
-## O que Cada Pacote Faz?
-
-### Pacotes do Font Awesome:
-
-- **`npm install --save @fortawesome/fontawesome-svg-core`**
-  - Este é o **motor principal** do Font Awesome para JavaScript. Ele gerencia como os ícones são registrados, processados e exibidos em seu aplicativo. É a base que permite que todos os outros pacotes de ícones funcionem corretamente.
-
-- **`npm install --save @fortawesome/free-solid-svg-icons`**
-  - Este pacote contém a **coleção de ícones "sólidos" (preenchidos)** que o Font Awesome oferece gratuitamente. O Font Awesome organiza seus ícones por diferentes estilos (sólido, regular, light, duotone, de marcas, etc.). Este comando instala especificamente o conjunto de ícones sólidos, que é um dos mais utilizados.
-
-- **`npm install --save @fortawesome/react-fontawesome`**
-  - Este é o **componente específico para React**. Ele fornece uma interface fácil e otimizada para você utilizar os ícones do Font Awesome diretamente dentro dos seus componentes React, usando a sintaxe JSX. É ele que transforma os dados dos ícones em elementos que o React pode renderizar na sua interface.
-
-### Pacote React Icons:
-
-- **`npm install react-icons`**
-  - Este pacote oferece uma solução **mais simples e leve para usar ícones em React**. Ele reúne várias bibliotecas populares de ícones em um só lugar, incluindo Font Awesome, Material Design, Ant Design, Feather, Bootstrap Icons e outras.
-  - Você importa apenas os ícones que precisa, de forma otimizada.  
-  Exemplo de uso:
-
-```jsx
-import { FaBeer } from 'react-icons/fa';
-
-function App() {
-  return <h3>Vamos tomar uma cerveja? <FaBeer /></h3>;
-}
-
+```bash
+git clone https://github.com/seu-usuario/seu-repositorio.git
+2. Acesse a pasta do projeto
+bash
+cd 'S.O.S Escola'
+3. Instale as dependências
+bash
+npm install
+4. Rode o projeto em modo desenvolvimento
+bash
+npm run dev
+🔗 O projeto estará rodando em:
+http://localhost:5173/
