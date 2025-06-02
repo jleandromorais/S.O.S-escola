@@ -1,4 +1,4 @@
-# 📢 S.O.S Escola - Sistema de Denúncias Escolares com IA
+# 📢 S.O.S Escola - Sistema de Denúncias Escolares
 
 Através de um projeto inovador com foco em segurança e bem-estar estudantil, estamos desenvolvendo a **S.O.S Escolar**, uma plataforma web voltada ao combate ao bullying e à violência escolar.
 
@@ -242,7 +242,7 @@ Reconhecemos os benefícios da programação em par e pretendemos viabilizá-la 
 ### 1️⃣ Clone o repositório
 
 ```bash
-git clone https://github.com/seu-usuario/seu-repositorio.git
+git clone https://github.com/jleandromorais/S.O.S-escola.git
  ```
 ### 2️⃣ Acesse a pasta do projeto
  ```bash
