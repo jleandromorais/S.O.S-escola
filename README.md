@@ -244,14 +244,17 @@ Reconhecemos os benefícios da programação em par e pretendemos viabilizá-la 
 ```bash
 git clone https://github.com/seu-usuario/seu-repositorio.git
  ```
-###2️⃣ Acesse a pasta do projeto
-bash
+### 2️⃣ Acesse a pasta do projeto
+ ```bash
 cd "./S.O.S Escola"
-###3️⃣ Instale as dependências
-bash
+ ```
+### 3️⃣ Instale as dependências
+ ```bash
 npm install
-###4️⃣ Rode o projeto em modo desenvolvimento
-bash
+ ```
+### 4️⃣ Rode o projeto em modo desenvolvimento
+ ```bash
 ###npm run dev
-🔗 Acesse o projeto no navegador
+ ```
+🔗 Acesse o projeto no navegador 
 http://localhost:5173/
