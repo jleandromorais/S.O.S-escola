@@ -254,7 +254,7 @@ npm install
  ```
 ### 4️⃣ Rode o projeto em modo desenvolvimento
  ```bash
-###npm run dev
+npm run dev
  ```
 🔗 Acesse o projeto no navegador 
 http://localhost:5173/
