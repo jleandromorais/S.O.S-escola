@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, FormEvent } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 type AreaType = 'aluno' | 'professor' | null;
@@ -6,10 +6,13 @@ type AreaType = 'aluno' | 'professor' | null;
 export default function Landing() {
   const navigate = useNavigate();
   const [selectedArea, setSelectedArea] = useState<AreaType>(null);
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
-  const handleEnter = () => {
-    if (selectedArea === 'aluno') navigate('/aluno/login');
-    else if (selectedArea === 'professor') navigate('/admin/login');
+  const handleEnter = (e: FormEvent) => {
+    e.preventDefault();
+    if (selectedArea === 'aluno') navigate('/aluno');
+    else if (selectedArea === 'professor') navigate('/admin');
   };
 
   const areas: { key: AreaType; label: string; icon: React.ReactNode }[] = [
@@ -255,58 +258,76 @@ export default function Landing() {
             </div>
 
             {/* Inputs */}
+            <form onSubmit={handleEnter}>
             <div className="space-y-3 mb-2">
-              {[
-                {
-                  type: 'email', placeholder: 'Seu e-mail',
-                  icon: (
-                    <>
-                      <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
-                      <polyline points="22,6 12,13 2,6" />
-                    </>
-                  ),
-                },
-                {
-                  type: 'password', placeholder: 'Sua senha',
-                  icon: (
-                    <>
-                      <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
-                      <path d="M7 11V7a5 5 0 0 1 10 0v4" />
-                    </>
-                  ),
-                },
-              ].map((field) => (
-                <div key={field.type} className="relative">
-                  <svg
-                    className="absolute top-1/2 -translate-y-1/2"
-                    style={{ left: 14, width: 15, height: 15, stroke: 'rgba(255,255,255,0.22)' }}
-                    viewBox="0 0 24 24" fill="none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
-                  >
-                    {field.icon}
-                  </svg>
-                  <input
-                    type={field.type}
-                    placeholder={field.placeholder}
-                    className="w-full text-sm outline-none transition-all"
-                    style={{
-                      background: 'rgba(255,255,255,0.04)',
-                      border: '1px solid rgba(255,255,255,0.09)',
-                      borderRadius: 12,
-                      padding: '13px 14px 13px 40px',
-                      color: '#fff',
-                      fontFamily: 'inherit',
-                    }}
-                    onFocus={(e) => {
-                      e.currentTarget.style.borderColor = 'rgba(56,189,248,0.5)';
-                      e.currentTarget.style.background = 'rgba(255,255,255,0.07)';
-                    }}
-                    onBlur={(e) => {
-                      e.currentTarget.style.borderColor = 'rgba(255,255,255,0.09)';
-                      e.currentTarget.style.background = 'rgba(255,255,255,0.04)';
-                    }}
-                  />
-                </div>
-              ))}
+              <div className="relative">
+                <svg
+                  className="absolute top-1/2 -translate-y-1/2"
+                  style={{ left: 14, width: 15, height: 15, stroke: 'rgba(255,255,255,0.22)' }}
+                  viewBox="0 0 24 24" fill="none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
+                >
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                  <polyline points="22,6 12,13 2,6" />
+                </svg>
+                <input
+                  type="email"
+                  placeholder="Seu e-mail"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                  className="w-full text-sm outline-none transition-all"
+                  style={{
+                    background: 'rgba(255,255,255,0.04)',
+                    border: '1px solid rgba(255,255,255,0.09)',
+                    borderRadius: 12,
+                    padding: '13px 14px 13px 40px',
+                    color: '#fff',
+                    fontFamily: 'inherit',
+                  }}
+                  onFocus={(e) => {
+                    e.currentTarget.style.borderColor = 'rgba(56,189,248,0.5)';
+                    e.currentTarget.style.background = 'rgba(255,255,255,0.07)';
+                  }}
+                  onBlur={(e) => {
+                    e.currentTarget.style.borderColor = 'rgba(255,255,255,0.09)';
+                    e.currentTarget.style.background = 'rgba(255,255,255,0.04)';
+                  }}
+                />
+              </div>
+              <div className="relative">
+                <svg
+                  className="absolute top-1/2 -translate-y-1/2"
+                  style={{ left: 14, width: 15, height: 15, stroke: 'rgba(255,255,255,0.22)' }}
+                  viewBox="0 0 24 24" fill="none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
+                >
+                  <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+                  <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+                </svg>
+                <input
+                  type="password"
+                  placeholder="Sua senha"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  required
+                  className="w-full text-sm outline-none transition-all"
+                  style={{
+                    background: 'rgba(255,255,255,0.04)',
+                    border: '1px solid rgba(255,255,255,0.09)',
+                    borderRadius: 12,
+                    padding: '13px 14px 13px 40px',
+                    color: '#fff',
+                    fontFamily: 'inherit',
+                  }}
+                  onFocus={(e) => {
+                    e.currentTarget.style.borderColor = 'rgba(56,189,248,0.5)';
+                    e.currentTarget.style.background = 'rgba(255,255,255,0.07)';
+                  }}
+                  onBlur={(e) => {
+                    e.currentTarget.style.borderColor = 'rgba(255,255,255,0.09)';
+                    e.currentTarget.style.background = 'rgba(255,255,255,0.04)';
+                  }}
+                />
+              </div>
             </div>
 
             {/* Feedback */}
@@ -317,7 +338,7 @@ export default function Landing() {
 
             {/* Botão */}
             <button
-              onClick={handleEnter}
+              type="submit"
               disabled={!selectedArea}
               className="w-full text-white font-black text-sm transition-all disabled:opacity-30 disabled:cursor-not-allowed"
               style={{
@@ -335,6 +356,7 @@ export default function Landing() {
             >
               Entrar na plataforma →
             </button>
+            </form>
 
             <p className="mt-5 text-center text-xs" style={{ color: 'rgba(255,255,255,0.25)' }}>
               Não tem conta?{' '}

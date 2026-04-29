@@ -13,7 +13,7 @@ export function MainLayout({ children, variant = 'admin' }: MainLayoutProps) {
   const SidebarComponent = variant === 'admin' ? AdminSidebar : StudentSidebar;
 
   return (
-    <div className="flex h-screen overflow-hidden bg-gray-50">
+    <div className="flex h-screen overflow-hidden" style={{ background: '#060d1a' }}>
       {/* Mobile toggle */}
       {isMobile && (
         <button
